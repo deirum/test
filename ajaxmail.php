@@ -28,4 +28,4 @@ if(trim($un)!="" && trim($msg)!="" && trim($em)!="")
 else
 {
 echo '2#<p style="color:red">Пожалуйста, заполните все поля.</p>';
-}?>ч
+}?>

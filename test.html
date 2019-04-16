@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    
+
+    <h1>Live Agent Pre-Chat Form</h1>
+    <iframe id="element" style="display: none;" name="myiframe" width="400" height="515" frameborder="0" allowfullscreen></iframe>
+    <script>
+        
+        var iframe = document.getElementsByName('myiframe')[0];
+        var win = iframe.contentWindow;
+        var doc = iframe.contentDocument? iframe.contentDocument: iframe.contentWindow.document;
+        // сработает
+        iframe.onload = function() {
+          console.log(document.querySelectorAll('[data-value]'));
+        };
+
+        window.setInterval(() => {
+            console.log(liveagent.getCustomEvents());
+        }, 5000);
+        
+        
+
+        function openWindow() {
+            liveagent.startChatWithWindow('5730o000000LVvr','myiframe');
+            document.getElementById("element").style.display = "block";
+        }
+        
+    </script>
+    Form that gathers information from the chat visitor and sets the values to Live Agent Custom Details used later in
+    the example -->
+
+        <a id="liveagent_button_online_5730o000000LVvr" href="javascript://Chat" style="display: none;"
+        
+            onclick="openWindow();"
+            >
+            <!-- Online Chat Content --><button type="submit">submit</button></a>
+<!-- onclick="liveagent.startChat('5730o000000LVvr')"
+
+
+
+
+<iframe id="element" style="display: none;" name="myiframe" width="400" height="515" frameborder="0" allowfullscreen></iframe>
+
+
+
+-->
+
+
+
+    
+
+    <script type='text/javascript'
+        src='https://c.la1-c2-ukb.salesforceliveagent.com/content/g/js/45.0/deployment.js'></script>
+    <script type='text/javascript'>
+
+        var email = 'd.azaronak@gmail.com';
+        liveagent.addCustomDetail('TranscriptEmail', email).saveToTranscript('Email__c');
+        liveagent.init('https://d.la1-c2-ukb.salesforceliveagent.com/chat', '5720o000000LV1Y', '00D0o000000RDRk');
+    </script>
+
+    <div id="liveagent_button_offline_5730o000000LVvr" style="display: none;">Offline Chat Content</div>
+    <script type="text/javascript">
+        if (!window._laq) { window._laq = []; }
+        window._laq.push(function () {
+            liveagent.showWhenOnline('5730o000000LVvr', document.getElementById('liveagent_button_online_5730o000000LVvr'));
+            liveagent.showWhenOffline('5730o000000LVvr', document.getElementById('liveagent_button_offline_5730o000000LVvr'));
+        });
+    </script>
+</body>
+
+</html>

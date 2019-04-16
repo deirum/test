@@ -42,6 +42,36 @@
 	// main home section height
 	var h = window.innerHeight;
 	$('.el_home_section').css('height', h);
+	
+	// fixed menubar
+    var menu = jQuery('.mainmenu');
+    
+    $(window).scroll(function() {
+        if (!menu.isOnScreen() && jQuery(this).scrollTop() > 100) {
+            $('.el_menu').addClass('el_fix');
+        } else {
+            $('.el_menu').removeClass('el_fix');
+        }
+    });
+    jQuery.fn.isOnScreen = function() {
+
+            var win = jQuery(window);
+
+            var viewport = {
+                top: win.scrollTop(),
+                left: win.scrollLeft()
+            };
+            viewport.right = viewport.left + win.width();
+            viewport.bottom = viewport.top + win.height();
+
+            if (this.offset()) {
+                var bounds = this.offset();
+                bounds.right = bounds.left + this.outerWidth();
+                bounds.bottom = bounds.top + this.outerHeight();
+
+                return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+            }
+        }
         //Click event to scroll to top
     $('.scrollToTop').click(function() {
         $('html, body').animate({
